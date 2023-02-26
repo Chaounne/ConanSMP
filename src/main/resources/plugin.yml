@@ -1,0 +1,10 @@
+name: ConanSMP
+version: '${project.version}'
+main: me.chaounne.conansmp.ConanSMP
+api-version: 1.19
+description: Conan SMP Plugin
+author: Chaounne
+commands:
+  coords:
+    description: Send your coordinates
+    usage: /coords

@@ -1,0 +1,2 @@
+# ConanSMP
+ Conan SMP Plugin
