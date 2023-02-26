@@ -8,3 +8,8 @@ commands:
   coords:
     description: Send your coordinates
     usage: /coords
+    aliases: coords
+  duel:
+    description: Duel a player to a CCG match
+    usage: /duel <player>
+    aliases: duel

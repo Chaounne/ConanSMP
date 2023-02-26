@@ -1,15 +1,21 @@
 package me.chaounne.conansmp.conancard.inv;
 
+import me.chaounne.conansmp.conancard.combat.Duel;
+import me.chaounne.conansmp.conancard.player.GamePlayer;
 import me.chaounne.conansmp.utils.ItemStackBuilder;
 import me.chaounne.fastinv.FastInv;
 import org.bukkit.Material;
+import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class TerrainInv extends FastInv {
+public class TerrainInv extends FastInv implements Listener {
 
-    public TerrainInv() {
+    Duel duel;
+
+    public TerrainInv(GamePlayer p1, GamePlayer p2) {
         super(27, "Combat");
+        duel = new Duel(p1, p2);
 
         ItemStackBuilder chainL = new ItemStackBuilder(Material.CHAIN).setLore("Délimitation du terrain").setName("Barrière");
         ItemStack limit = chainL.getItemStack();

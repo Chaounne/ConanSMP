@@ -1,6 +1,7 @@
 package me.chaounne.conansmp;
 
 import me.chaounne.conansmp.commands.Commands;
+import me.chaounne.fastinv.FastInvManager;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,7 +18,9 @@ public final class ConanSMP extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         Commands com = new Commands();
+        FastInvManager.register(this);
         getCommand("coords").setExecutor(com);
+        getCommand("duel").setExecutor(com);
         instance = this;
         getServer().getPluginManager().registerEvents(this, this);
     }
