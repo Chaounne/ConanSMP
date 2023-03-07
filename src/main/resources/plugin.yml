@@ -13,3 +13,7 @@ commands:
     description: Duel a player to a CCG match
     usage: /duel <player>
     aliases: duel
+  inv:
+    description: Open the commmon inventory
+    usage: /inv
+    aliases: inv

@@ -1,12 +1,18 @@
 package me.chaounne.conansmp.commands;
 
 import me.chaounne.conansmp.conancard.inv.Request;
+import me.chaounne.conansmp.inv.Commun;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 
 public class Commands implements CommandExecutor {
+
+    private Inventory commun;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(!(sender instanceof Player)){
@@ -32,7 +38,10 @@ public class Commands implements CommandExecutor {
             player.sendMessage("Vous avez provoqué " + target.getName() + " en duel !");
             target.sendMessage(player.getName() + " veux vous affronter !");
             new Request(player.getName()).open(target);
-
+        }
+        if(command.getName().equalsIgnoreCase("inv")){
+            commun = Commun.getInstance();
+            player.openInventory(commun);
         }
         return true;
     }

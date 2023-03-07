@@ -1,6 +1,7 @@
 package me.chaounne.conansmp;
 
 import me.chaounne.conansmp.commands.Commands;
+import me.chaounne.conansmp.recipe.Recipe;
 import me.chaounne.fastinv.FastInvManager;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
@@ -18,9 +19,11 @@ public final class ConanSMP extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         Commands com = new Commands();
+        Recipe.init();
         FastInvManager.register(this);
         getCommand("coords").setExecutor(com);
         getCommand("duel").setExecutor(com);
+        getCommand("inv").setExecutor(com);
         instance = this;
         getServer().getPluginManager().registerEvents(this, this);
     }
@@ -44,6 +47,12 @@ public final class ConanSMP extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         e.setFormat(e.getPlayer().getName() + ": " + e.getMessage());
+        if(e.getMessage().contains("quoi") || e.getMessage().contains("QUOI")){
+            if(Math.random()>0.5)
+                e.getPlayer().sendTitle("QUOICOUBEH", "", 10, 40, 10);
+            else
+                e.getPlayer().sendTitle("Feur", "", 10, 40, 10);
+        }
     }
 
     public ConanSMP getInstance() {
