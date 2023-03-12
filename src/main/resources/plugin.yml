@@ -17,3 +17,7 @@ commands:
     description: Open the commmon inventory
     usage: /inv
     aliases: inv
+  packopen:
+    description: Pack opening tah DavidLaFarge
+    usage: /packopen
+    aliases: packopen

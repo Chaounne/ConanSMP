@@ -1,10 +1,10 @@
 package me.chaounne.conansmp.commands;
 
 import me.chaounne.conansmp.conancard.inv.Request;
+import me.chaounne.conansmp.conancard.packopening.Booster;
 import me.chaounne.conansmp.inv.Commun;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -42,6 +42,12 @@ public class Commands implements CommandExecutor {
         if(command.getName().equalsIgnoreCase("inv")){
             commun = Commun.getInstance();
             player.openInventory(commun);
+        }
+        if(command.getName().equalsIgnoreCase("packopen")){
+            System.out.println("packopen");
+            Booster booster = Booster.getInstance();
+            System.out.println("booster");
+            booster.open(player);
         }
         return true;
     }

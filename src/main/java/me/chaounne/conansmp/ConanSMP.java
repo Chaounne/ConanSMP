@@ -1,6 +1,9 @@
 package me.chaounne.conansmp;
 
+import jdk.nashorn.internal.ir.Block;
 import me.chaounne.conansmp.commands.Commands;
+import me.chaounne.conansmp.conancard.cards.*;
+import me.chaounne.conansmp.conancard.packopening.Booster;
 import me.chaounne.conansmp.recipe.Recipe;
 import me.chaounne.fastinv.FastInvManager;
 import org.bukkit.ChatColor;
@@ -24,7 +27,32 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         getCommand("coords").setExecutor(com);
         getCommand("duel").setExecutor(com);
         getCommand("inv").setExecutor(com);
+        getCommand("packopen").setExecutor(com);
         instance = this;
+
+        //create all cards
+        Villageois villageois = new Villageois();
+        TorcheAme torcheAme = new TorcheAme();
+        PoissonGlobe poissonGlobe = new PoissonGlobe();
+        Morue morue = new Morue();
+        LanterneAme lanterneAme = new LanterneAme();
+        Lanterne lanterne = new Lanterne();
+        GolemFer golemFer = new GolemFer();
+        Citrouille citrouille = new Citrouille();
+        BlockFer blockFer = new BlockFer();
+
+        Booster booster = Booster.getInstance();
+        //add all cards to booster
+        booster.addToBooster(villageois);
+        booster.addToBooster(torcheAme);
+        booster.addToBooster(poissonGlobe);
+        booster.addToBooster(morue);
+        booster.addToBooster(lanterneAme);
+        booster.addToBooster(lanterne);
+        booster.addToBooster(golemFer);
+        booster.addToBooster(citrouille);
+        booster.addToBooster(blockFer);
+
         getServer().getPluginManager().registerEvents(this, this);
     }
 

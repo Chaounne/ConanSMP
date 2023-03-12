@@ -1,11 +1,15 @@
 package me.chaounne.conansmp.conancard.cards;
 
+import me.chaounne.conansmp.conancard.cards.rare.Rarete;
 import me.chaounne.conansmp.conancard.cards.type.Type;
+import me.chaounne.conansmp.conancard.packopening.Booster;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public abstract class SampleCard {
+import java.util.HashMap;
 
+public class SampleCard {
+    protected int id;
     protected Type type;
 
     protected Type secondType;
@@ -18,25 +22,39 @@ public abstract class SampleCard {
 
     protected ItemStack item;
 
+    protected Rarete rare;
+
+
 
     //single type construtor
-    protected SampleCard(String _name, Type _type, int att, int dff, ItemStack item){
+    protected SampleCard(int id, String _name, Type _type, int att, int dff, ItemStack item, Rarete rare){
+        this.id = id;
         this.name = _name;
         this.type = _type;
         this.atk = att;
         this.def = dff;
         this.item = item;
+        this.rare = rare;
     }
 
 
     //double type construtor
-    protected SampleCard(String _name, Type _type, Type _type2, int att, int dff, ItemStack item){
+    protected SampleCard(int id, String _name, Type _type, Type _type2, int att, int dff, ItemStack item, Rarete rare){
         this.name = _name;
         this.type = _type;
         this.atk = att;
         this.def = dff;
         this.secondType = _type2;
         this.item = item;
+        this.rare = rare;
+    }
+
+    public Rarete getRarete(){
+        return rare;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Type getType() {

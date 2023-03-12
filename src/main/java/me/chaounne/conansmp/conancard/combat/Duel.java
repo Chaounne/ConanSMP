@@ -13,6 +13,8 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.HashMap;
+
 public class Duel implements Listener {
 
     GamePlayer j1;
@@ -20,11 +22,15 @@ public class Duel implements Listener {
     boolean isFinished;
     Inventory board;
 
+    private int turn;
+    private HashMap<GamePlayer, ItemStack> cards = new HashMap<GamePlayer, ItemStack>();
+
     public Duel(GamePlayer j1, GamePlayer j2){
         this.j1 = j1;
         this.j2 = j2;
         this.isFinished = false;
-        board = Bukkit.createInventory(null, 27, j1.getPlayer().getName() + " vs " + j2.getPlayer().getName());
+        this.turn = 0;
+        board = Bukkit.createInventory(null, 27+9, j1.getPlayer().getName() + " vs " + j2.getPlayer().getName());
         board.setItem(4, new ItemStackBuilder(Material.CHAIN).setName("Délimitation").setLore("Limite du terrain").getItemStack());
         board.setItem(13, new ItemStackBuilder(Material.CHAIN).setName("Délimitation").setLore("Limite du terrain").getItemStack());
         board.setItem(22, new ItemStackBuilder(Material.CHAIN).setName("Délimitation").setLore("Limite du terrain").getItemStack());
@@ -102,5 +108,12 @@ public class Duel implements Listener {
         }
     }
 
-
+    public void getMonsterCards(){
+        cards.put(j1, board.getItem(2));
+        cards.put(j1, board.getItem(11));
+        cards.put(j1, board.getItem(20));
+        cards.put(j2, board.getItem(6));
+        cards.put(j2, board.getItem(15));
+        cards.put(j2, board.getItem(24));
+    }
 }
