@@ -24,13 +24,10 @@ public class Request extends FastInv {
             e.getWhoClicked().closeInventory();
             Player p1 = Bukkit.getPlayer(playerName);
             Player p2 = Bukkit.getPlayer(e.getWhoClicked().getName());
-            GamePlayer gp1 = new GamePlayer(p1);
-            GamePlayer gp2 = new GamePlayer(p2);
+            GamePlayer gp1 = GamePlayer.getInstance(p1);
+            GamePlayer gp2 = GamePlayer.getInstance(p2);
             Duel duel = new Duel(gp1, gp2);
-            TerrainInv inv = new TerrainInv(gp1, gp2);
-            Inventory inv1 = inv.getInventory();
-            p1.openInventory(inv1);
-            p2.openInventory(inv1);
+            duel.startGame();
             });
 
         setItem(6, noItem, e -> {

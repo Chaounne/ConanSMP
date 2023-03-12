@@ -46,10 +46,21 @@ public final class ConanSMP extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
-        e.setFormat(e.getPlayer().getName() + ": " + e.getMessage());
+        if(Math.random() >0.7){
+            e.setFormat(e.getPlayer().getName() + ": " + e.getMessage() + "coubeh");
+            e.getPlayer().sendTitle(e.getMessage().toUpperCase() + "COUBEH", "", 10, 40, 10);
+        } else if (Math.random() > 0.9 && e.getPlayer().getName() != "Azrael_IV") {
+            e.setFormat(e.getPlayer().getName() + ": " + "tg maceo");
+        } else if (Math.random() > 0.9 && e.getPlayer().getName() == "Azrael_IV"){
+            e.setFormat(e.getPlayer().getName() + ": " + "j'aime la bite");
+        } else {
+            e.setFormat(e.getPlayer().getName() + ": " + e.getMessage());
+        }
         if(e.getMessage().contains("quoi") || e.getMessage().contains("QUOI")){
-            if(Math.random()>0.5)
+            if(Math.random()>0.5 && Math.random() < 0.75)
                 e.getPlayer().sendTitle("QUOICOUBEH", "", 10, 40, 10);
+            else if(Math.random() > 0.75 && Math.random() < 0.9)
+                e.getPlayer().sendTitle("QUOI QU'EST QU'IL Y A", "", 10, 40, 10);
             else
                 e.getPlayer().sendTitle("Feur", "", 10, 40, 10);
         }

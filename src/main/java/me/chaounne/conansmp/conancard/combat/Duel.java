@@ -1,18 +1,33 @@
 package me.chaounne.conansmp.conancard.combat;
 
+import me.chaounne.conansmp.conancard.cards.Villageois;
 import me.chaounne.conansmp.conancard.player.GamePlayer;
+import me.chaounne.conansmp.utils.ItemStackBuilder;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
-public class Duel {
+public class Duel implements Listener {
 
     GamePlayer j1;
     GamePlayer j2;
     boolean isFinished;
+    Inventory board;
 
     public Duel(GamePlayer j1, GamePlayer j2){
         this.j1 = j1;
         this.j2 = j2;
         this.isFinished = false;
+        board = Bukkit.createInventory(null, 27, j1.getPlayer().getName() + " vs " + j2.getPlayer().getName());
+        board.setItem(4, new ItemStackBuilder(Material.CHAIN).setName("Délimitation").setLore("Limite du terrain").getItemStack());
+        board.setItem(13, new ItemStackBuilder(Material.CHAIN).setName("Délimitation").setLore("Limite du terrain").getItemStack());
+        board.setItem(22, new ItemStackBuilder(Material.CHAIN).setName("Délimitation").setLore("Limite du terrain").getItemStack());
     }
 
     public void removePv(Player player, int pv){
@@ -53,4 +68,39 @@ public class Duel {
     public GamePlayer getJ2(){
         return j2;
     }
+
+    public void startGame (){
+        j1.getPlayer().openInventory(board);
+        j2.getPlayer().openInventory(board);
+
+        Villageois villageois = new Villageois();
+
+        j1.getPlayer().getInventory().addItem(villageois.getItem());
+        isFinished = false;
+
+        Bukkit.getPluginManager().registerEvents(this, Bukkit.getPluginManager().getPlugin("ConanSMP"));
+    }
+
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        if (event.getInventory().equals(board)) { // check if the clicked inventory is the Duel board
+            ItemStack clickedItem = event.getCurrentItem();
+            if (clickedItem != null && clickedItem.getType() == Material.CHAIN) { // check if the clicked item is a chain
+                event.setCancelled(true); // cancel the event to prevent the player from taking the chain
+            }
+        }
+    }
+
+    @EventHandler
+    public void onInventoryClose(InventoryCloseEvent event) {
+        if (event.getInventory().equals(board)) {
+            if(!isFinished){
+                j1.getPlayer().closeInventory();
+                j2.getPlayer().closeInventory();
+                isFinished = true;
+            }
+        }
+    }
+
+
 }

@@ -1,8 +1,13 @@
 package me.chaounne.conansmp.conancard.player;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 
-public class GamePlayer {
+import java.util.HashMap;
+import java.util.UUID;
+
+public class GamePlayer{
 
     private GamePlayer instance;
 
@@ -10,16 +15,20 @@ public class GamePlayer {
 
     private int pv;
 
-    public GamePlayer(Player player) {
+    private static HashMap<UUID, GamePlayer> players = new HashMap<>();
+
+    private GamePlayer(Player player) {
         this.pv = 100;
         this.player = player;
     }
 
-    public GamePlayer getInstance(Player p) {
-        if (instance == null) {
-            instance = new GamePlayer(p);
+    public static GamePlayer getInstance(Player p) {
+        UUID playerUUID = p.getUniqueId();
+        if (!players.containsKey(playerUUID)) {
+
+            players.put(playerUUID, new GamePlayer(p));
         }
-        return instance;
+        return players.get(playerUUID);
     }
 
     public void removePv(int pv){
