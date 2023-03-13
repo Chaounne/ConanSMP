@@ -1,5 +1,6 @@
 package me.chaounne.conansmp;
 
+import javafx.scene.effect.Glow;
 import jdk.nashorn.internal.ir.Block;
 import me.chaounne.conansmp.commands.Commands;
 import me.chaounne.conansmp.conancard.cards.*;
@@ -31,6 +32,7 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         instance = this;
 
         //create all cards
+        //saison 1
         Villageois villageois = new Villageois();
         TorcheAme torcheAme = new TorcheAme();
         PoissonGlobe poissonGlobe = new PoissonGlobe();
@@ -40,9 +42,27 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         GolemFer golemFer = new GolemFer();
         Citrouille citrouille = new Citrouille();
         BlockFer blockFer = new BlockFer();
+        CanneAPeche canneAPeche = new CanneAPeche();
+        DisqueMusiqueBleu disqueMusiqueBleu = new DisqueMusiqueBleu();
+        DisqueMusiqueNoir disqueMusiqueNoir = new DisqueMusiqueNoir();
+        Entonnoir entonnoir = new Entonnoir();
+        PiocheDiamant piocheDiamant = new PiocheDiamant();
+        Porte porte = new Porte();
+        Bouclier bouclier = new Bouclier();
+        Arc arc = new Arc();
+        Arbalete arbalete = new Arbalete();
+        CasqueTortue casqueTortue = new CasqueTortue();
+        Wither wither = new Wither();
+        Glowstone glowstone = new Glowstone();
+        PoudreGlowstone poudreGlowstone = new PoudreGlowstone();
+        Torche torche = new Torche();
+        Shroomlight shroomlight = new Shroomlight();
+        Seaudeau seaudeau = new Seaudeau();
+        LampeDesMers lampeDesMers = new LampeDesMers();
 
         Booster booster = Booster.getInstance();
         //add all cards to booster
+        //booster saison 1
         booster.addToBooster(villageois);
         booster.addToBooster(torcheAme);
         booster.addToBooster(poissonGlobe);
@@ -52,6 +72,23 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         booster.addToBooster(golemFer);
         booster.addToBooster(citrouille);
         booster.addToBooster(blockFer);
+        booster.addToBooster(canneAPeche);
+        booster.addToBooster(disqueMusiqueBleu);
+        booster.addToBooster(disqueMusiqueNoir);
+        booster.addToBooster(entonnoir);
+        booster.addToBooster(piocheDiamant);
+        booster.addToBooster(porte);
+        booster.addToBooster(bouclier);
+        booster.addToBooster(arc);
+        booster.addToBooster(arbalete);
+        booster.addToBooster(casqueTortue);
+        booster.addToBooster(wither);
+        booster.addToBooster(glowstone);
+        booster.addToBooster(poudreGlowstone);
+        booster.addToBooster(torche);
+        booster.addToBooster(shroomlight);
+        booster.addToBooster(seaudeau);
+        booster.addToBooster(lampeDesMers);
 
         getServer().getPluginManager().registerEvents(this, this);
     }

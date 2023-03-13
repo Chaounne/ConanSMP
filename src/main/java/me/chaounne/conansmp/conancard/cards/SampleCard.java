@@ -2,6 +2,7 @@ package me.chaounne.conansmp.conancard.cards;
 
 import me.chaounne.conansmp.conancard.cards.rare.Rarete;
 import me.chaounne.conansmp.conancard.cards.type.Type;
+import me.chaounne.conansmp.conancard.cards.type.TypeCarte;
 import me.chaounne.conansmp.conancard.packopening.Booster;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -24,6 +25,8 @@ public class SampleCard {
 
     protected Rarete rare;
 
+    protected TypeCarte typeCarte;
+
 
 
     //single type construtor
@@ -35,6 +38,7 @@ public class SampleCard {
         this.def = dff;
         this.item = item;
         this.rare = rare;
+        this.typeCarte = TypeCarte.MONSTRE;
     }
 
 
@@ -47,7 +51,18 @@ public class SampleCard {
         this.secondType = _type2;
         this.item = item;
         this.rare = rare;
+        this.typeCarte = TypeCarte.MONSTRE;
     }
+
+    //carte non monstre
+    protected SampleCard(int id, String _name, TypeCarte typeCarte, Rarete rare, ItemStack item){
+        this.id = id;
+        this.name = _name;
+        this.typeCarte = typeCarte;
+        this.rare = rare;
+        this.item = item;
+    }
+
 
     public Rarete getRarete(){
         return rare;
