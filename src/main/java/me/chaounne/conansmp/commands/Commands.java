@@ -49,7 +49,7 @@ public class Commands implements CommandExecutor {
             booster.open(player);
         }
         if(command.getName().equalsIgnoreCase("cartesinfo")){
-            player.sendMessage("Lien vers les infos des cartes : " + ChatColor.BLUE + "https://docs.google.com/document/d/1_m9hKKjZQdUXErZMbQhL1Gq9mizRk7F3VJkUHXba6tc/edit?usp=sharing");
+            player.sendMessage("Lien vers les infos des cartes : " + ChatColor.BLUE + "https://docs.google.com/document/d/1tO4Su01VL_i0lQ_pdeat1QjmPRLcWJ7ezSvZK83oYZA/edit?usp=sharing");
         }
         return true;
     }

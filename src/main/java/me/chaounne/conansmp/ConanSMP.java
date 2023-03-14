@@ -131,6 +131,7 @@ public final class ConanSMP extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         event.setJoinMessage(ChatColor.AQUA + event.getPlayer().getName() + ChatColor.GOLD + " a rejoint le serveur dinguerie wsh");
+        event.getPlayer().sendMessage("Mise a jour Conan Cards : Ajout de la flower extension + Mise en place de la saison 1 (pas encore finalisée)");
         event.getPlayer().sendMessage("uwu");
     }
 
