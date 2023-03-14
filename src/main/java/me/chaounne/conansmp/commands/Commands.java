@@ -3,6 +3,7 @@ package me.chaounne.conansmp.commands;
 import me.chaounne.conansmp.conancard.inv.Request;
 import me.chaounne.conansmp.conancard.packopening.Booster;
 import me.chaounne.conansmp.inv.Commun;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -44,10 +45,11 @@ public class Commands implements CommandExecutor {
             player.openInventory(commun);
         }
         if(command.getName().equalsIgnoreCase("packopen")){
-            System.out.println("packopen");
             Booster booster = Booster.getInstance();
-            System.out.println("booster");
             booster.open(player);
+        }
+        if(command.getName().equalsIgnoreCase("cartesinfo")){
+            player.sendMessage("Lien vers les infos des cartes : " + ChatColor.BLUE + "https://docs.google.com/document/d/1_m9hKKjZQdUXErZMbQhL1Gq9mizRk7F3VJkUHXba6tc/edit?usp=sharing");
         }
         return true;
     }

@@ -1,7 +1,5 @@
 package me.chaounne.conansmp;
 
-import javafx.scene.effect.Glow;
-import jdk.nashorn.internal.ir.Block;
 import me.chaounne.conansmp.commands.Commands;
 import me.chaounne.conansmp.conancard.cards.*;
 import me.chaounne.conansmp.conancard.packopening.Booster;
@@ -29,6 +27,7 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         getCommand("duel").setExecutor(com);
         getCommand("inv").setExecutor(com);
         getCommand("packopen").setExecutor(com);
+        getCommand("cartesinfo").setExecutor(com);
         instance = this;
 
         //create all cards

@@ -78,10 +78,6 @@ public class Duel implements Listener {
     public void startGame (){
         j1.getPlayer().openInventory(board);
         j2.getPlayer().openInventory(board);
-
-        Villageois villageois = new Villageois();
-
-        j1.getPlayer().getInventory().addItem(villageois.getItem());
         isFinished = false;
 
         Bukkit.getPluginManager().registerEvents(this, Bukkit.getPluginManager().getPlugin("ConanSMP"));

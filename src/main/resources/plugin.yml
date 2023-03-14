@@ -21,3 +21,7 @@ commands:
     description: Pack opening tah DavidLaFarge
     usage: /packopen
     aliases: packopen
+  cartesinfo:
+    description: Information about the cards
+    usage: /cartesinfo
+    aliases: cartesinfo
