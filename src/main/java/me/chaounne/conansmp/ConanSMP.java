@@ -2,6 +2,7 @@ package me.chaounne.conansmp;
 
 import me.chaounne.conansmp.commands.Commands;
 import me.chaounne.conansmp.conancard.cards.*;
+import me.chaounne.conansmp.conancard.cards.flowersextension.*;
 import me.chaounne.conansmp.conancard.packopening.Booster;
 import me.chaounne.conansmp.recipe.Recipe;
 import me.chaounne.fastinv.FastInvManager;
@@ -58,6 +59,21 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         Shroomlight shroomlight = new Shroomlight();
         Seaudeau seaudeau = new Seaudeau();
         LampeDesMers lampeDesMers = new LampeDesMers();
+        BlackDie blackDie = new BlackDie();
+        EnderDragon enderDragon = new EnderDragon();
+        TableCraft tableCraft = new TableCraft();
+
+        //Flowers Extension
+        ColorantBlanc colorantBlanc = new ColorantBlanc();
+        ColorantBleu colorantBleu = new ColorantBleu();
+        ColorantJaune colorantJaune = new ColorantJaune();
+        ColorantRouge colorantRouge = new ColorantRouge();
+        Pissenlit pissenlit = new Pissenlit();
+        Rose rose = new Rose();
+        Rosier rosier = new Rosier();
+        Bleuet bleuet = new Bleuet();
+        Shears shears = new Shears();
+        TerreLabourree terreLabourree = new TerreLabourree();
 
         Booster booster = Booster.getInstance();
         //add all cards to booster
@@ -88,6 +104,21 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         booster.addToBooster(shroomlight);
         booster.addToBooster(seaudeau);
         booster.addToBooster(lampeDesMers);
+        booster.addToBooster(blackDie);
+        booster.addToBooster(enderDragon);
+        booster.addToBooster(tableCraft);
+
+        //Flowers Extension
+        booster.addToBooster(colorantBlanc);
+        booster.addToBooster(colorantBleu);
+        booster.addToBooster(colorantJaune);
+        booster.addToBooster(colorantRouge);
+        booster.addToBooster(pissenlit);
+        booster.addToBooster(rose);
+        booster.addToBooster(rosier);
+        booster.addToBooster(bleuet);
+        booster.addToBooster(shears);
+        booster.addToBooster(terreLabourree);
 
         getServer().getPluginManager().registerEvents(this, this);
     }
