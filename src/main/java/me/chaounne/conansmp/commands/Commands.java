@@ -38,7 +38,7 @@ public class Commands implements CommandExecutor {
             }
             player.sendMessage("Vous avez provoqué " + target.getName() + " en duel !");
             target.sendMessage(player.getName() + " veux vous affronter !");
-            new Request(player.getName()).open(target);
+            new Request(player.getName(), "Duel").open(target);
         }
         if(command.getName().equalsIgnoreCase("inv")){
             commun = Commun.getInstance();
@@ -50,6 +50,20 @@ public class Commands implements CommandExecutor {
         }
         if(command.getName().equalsIgnoreCase("cartesinfo")){
             player.sendMessage("Lien vers les infos des cartes : " + ChatColor.BLUE + "https://docs.google.com/document/d/1tO4Su01VL_i0lQ_pdeat1QjmPRLcWJ7ezSvZK83oYZA/edit?usp=sharing");
+        }
+        if(command.getName().equalsIgnoreCase("morpion")){
+            if(args.length < 1){
+                player.sendMessage("Usage: /morpion <player>");
+                return true;
+            }
+            Player target = player.getServer().getPlayer(args[0]);
+            if(target == null){
+                player.sendMessage("Player not found!");
+                return true;
+            }
+            player.sendMessage("Vous avez provoqué " + target.getName() + " en morpion !");
+            target.sendMessage(player.getName() + " veux vous affronter au morpion !");
+            new Request(player.getName(), "Morpion").open(target);
         }
         return true;
     }

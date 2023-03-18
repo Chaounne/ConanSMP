@@ -4,6 +4,7 @@ import me.chaounne.conansmp.commands.Commands;
 import me.chaounne.conansmp.conancard.cards.*;
 import me.chaounne.conansmp.conancard.cards.flowersextension.*;
 import me.chaounne.conansmp.conancard.packopening.Booster;
+import me.chaounne.conansmp.inv.Commun;
 import me.chaounne.conansmp.recipe.Recipe;
 import me.chaounne.fastinv.FastInvManager;
 import org.bukkit.ChatColor;
@@ -12,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ConanSMP extends JavaPlugin implements Listener {
@@ -27,6 +29,7 @@ public final class ConanSMP extends JavaPlugin implements Listener {
         getCommand("coords").setExecutor(com);
         getCommand("duel").setExecutor(com);
         getCommand("inv").setExecutor(com);
+        getCommand("morpion").setExecutor(com);
         getCommand("packopen").setExecutor(com);
         getCommand("cartesinfo").setExecutor(com);
         instance = this;
@@ -126,6 +129,8 @@ public final class ConanSMP extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        Commun.saveItemsToConfig();
+        System.out.println("Items sauvegardés");
     }
 
     @EventHandler
