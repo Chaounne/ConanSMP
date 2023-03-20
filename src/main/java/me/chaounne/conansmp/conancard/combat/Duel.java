@@ -97,8 +97,11 @@ public class Duel implements Listener {
     public void onInventoryClose(InventoryCloseEvent event) {
         if (event.getInventory().equals(board)) {
             if(!isFinished){
-                j1.getPlayer().closeInventory();
-                j2.getPlayer().closeInventory();
+                if(event.getPlayer() == j1.getPlayer()){
+                    j2.getPlayer().closeInventory();
+                }else if(event.getPlayer() == j2.getPlayer()){
+                    j1.getPlayer().closeInventory();
+                }
                 isFinished = true;
             }
         }
